@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-in">
+    <div>
+      <h1>Launch Radar</h1>
+      <p class="tagline">Protocols with no token yet, ranked by what their token would be worth — and how to farm each one before it lands.</p>
+    </div>
+    <div class="masthead-meta" id="masthead-meta"></div>
+  </div>
+</header>
+<main>
+  <section class="model-card" id="model-card"></section>
+  <nav class="tabs">
+    <button id="tab-radar" class="tab active" type="button">Radar board</button>
+    <button id="tab-live" class="tab" type="button">Live tokens, for scale</button>
+  </nav>
+  <section class="controls" id="controls">
+    <label>Search <input id="q" type="search" placeholder="name or slug"></label>
+    <label>Category <select id="cat"><option value="">All categories</option></select></label>
+    <label>Chain <select id="chain"><option value="">All chains</option></select></label>
+    <label>Sort by
+      <select id="sort">
+        <option value="implied">Implied value</option>
+        <option value="tvl">TVL</option>
+        <option value="growth">7-day growth</option>
+        <option value="age">Age (no token)</option>
+        <option value="multiple">Category multiple</option>
+      </select>
+    </label>
+    <label class="check"><input id="watch" type="checkbox"> Watchlist only</label>
+    <span class="count" id="count"></span>
+  </section>
+  <section id="board-view">
+    <table id="board">
+      <thead><tr>
+        <th class="num">#</th><th>Protocol</th><th>Category</th><th>Chains</th>
+        <th class="num">TVL</th><th class="num">7d</th><th class="num">Age</th>
+        <th class="num">× TVL</th><th class="num">Implied value</th>
+      </tr></thead>
+      <tbody id="board-body"></tbody>
+    </table>
+  </section>
+  <section id="live-view" hidden>
+    <p class="live-note">These protocols already have a token; the market has priced them. They are the radar's yardstick — the category multiples on the board are the medians of this set's market-cap-to-TVL ratios — and they are never ranked with the pre-token board.</p>
+    <table id="live">
+      <thead><tr>
+        <th>Protocol</th><th>Category</th><th>Chains</th>
+        <th class="num">TVL</th><th class="num">7d</th><th class="num">Market cap</th><th class="num">Mcap / TVL</th>
+      </tr></thead>
+      <tbody id="live-body"></tbody>
+    </table>
+  </section>
+  <section id="detail-view" hidden></section>
+  <footer>
+    <p id="foot-note"></p>
+  </footer>
+</main>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
